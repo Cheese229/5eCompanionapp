@@ -30,8 +30,9 @@ import '@ionic/react/css/display.css';
 /* import '@ionic/react/css/palettes/dark.class.css'; */
 import '@ionic/react/css/palettes/dark.system.css';
 
-/* Theme variables */
+/* Theme variables and tailwind*/
 import './theme/variables.css';
+import './global.css';
 
 setupIonicReact();
 
