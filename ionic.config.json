@@ -1,0 +1,7 @@
+{
+  "name": "companion",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
