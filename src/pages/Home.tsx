@@ -1,5 +1,5 @@
-import { IonContent, IonFooter, IonHeader, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import React, { useState } from 'react';
+import { IonButtons, IonContent, IonFooter, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import React from 'react';
 
 import { Card, CardContent } from "@/components/ui/card"
 import {
@@ -7,24 +7,16 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel"
-import Intro from '@/components/intro';
 
 const Home: React.FC = () => {
 
-  const [introSeen, setIntroSeen] = useState(false);
-
-  const finishIntro = async() => {
-    setIntroSeen(true);
-  }
-
   return (
-    <>
-    {!introSeen ? (
-      <Intro onFinish={finishIntro} />
-    ) : (
       <IonPage>
         <IonHeader>
           <IonToolbar>
+            <IonButtons slot="start">
+              <IonMenuButton />
+            </IonButtons>
             <IonTitle className='pl-5'>Home</IonTitle>
           </IonToolbar>
         </IonHeader>
@@ -81,12 +73,10 @@ const Home: React.FC = () => {
         {/* gonna have to figure out how to do a bottom tab navbar for mobile while having a sidebar on desktop */}
         <IonFooter>
           <IonToolbar className='pl-5'>
-            temp
+            temp footer
           </IonToolbar>
         </IonFooter>
       </IonPage>
-    )}
-    </>
   );
 };
 
