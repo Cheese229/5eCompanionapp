@@ -28,6 +28,7 @@ const Home: React.FC = () => {
               </h1>
             </div>
             <div>
+              {/* shadcn carousel. temp items just array of numbers. will hook up to a json file with characters */}
               <Carousel className="w-full max-w-full">
                 <CarouselContent>
                   {Array.from({ length: 6 }).map((_, index) => (
@@ -52,6 +53,7 @@ const Home: React.FC = () => {
               </h1>
             </div>
             <div>
+              {/* also hook up to a json file for campaigns */}
               <Carousel className="w-full max-w-full">
                 <CarouselContent>
                   {Array.from({ length: 2 }).map((_, index) => (
@@ -69,8 +71,9 @@ const Home: React.FC = () => {
               </Carousel>
             </div>
           </section>
+          {/* need to add homebrew and other content etc. */}
         </IonContent>
-        {/* gonna have to figure out how to do a bottom tab navbar for mobile while having a sidebar on desktop */}
+        {/* gonna have to figure out how to do a bottom tab navbar for mobile while having a sidebar on desktop. if not, current sidebar is not bad*/}
         <IonFooter>
           <IonToolbar className='pl-5'>
             temp footer

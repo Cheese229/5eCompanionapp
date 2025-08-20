@@ -18,6 +18,7 @@ const Intro: React.FC<ContainerProps> = ( {onFinish} ) => {
 
     return (
         <div>
+            {/* swiper element of images for intro. images are temp and will change to something better lol */}
             <Swiper>
                 <SwiperSlide>
                     <img src={intro1} alt="Intro 1" />

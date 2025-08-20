@@ -3,12 +3,13 @@ import React from 'react';
 import { Route, Redirect } from 'react-router';
 
 // page imports
-import CharacterList from './Characterlist';
+import CharacterList from './CharacterList';
 import Home from './Home';
 
 
 const Menu: React.FC = () => {
 
+    // list of pages here
     const paths = [
         { name: "Home", url: "/app/home"},
         { name: "Characters", url: "/app/characters"}
@@ -16,7 +17,8 @@ const Menu: React.FC = () => {
 
     return (
         <IonPage>
-            <IonSplitPane contentId='main'>
+            {/* split pane to hide navbar on smaller screen and have always open on larger screen */}
+            <IonSplitPane contentId='main'> 
                 <IonMenu contentId='main'>
                     <IonHeader>
                         <IonToolbar color={'secondary'}>
@@ -34,6 +36,7 @@ const Menu: React.FC = () => {
                     </IonContent>
                 </IonMenu>
 
+                {/* router to render all the pages with the nav menu */}
                 <IonRouterOutlet id='main'>
                     <Route exact path="/app/home" component={Home} />
                     <Route path="/app/characters" component={CharacterList} />
