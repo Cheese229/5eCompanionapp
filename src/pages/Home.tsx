@@ -8,6 +8,11 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel"
 
+// temp database to test character list
+import db from "@/tempdb/characters.json";
+import { character } from "@/tempmodel/character";
+import temp from '@/assets/graysquare.png';
+
 const Home: React.FC = () => {
 
   return (
@@ -31,7 +36,7 @@ const Home: React.FC = () => {
               {/* shadcn carousel. temp items just array of numbers. will hook up to a json file with characters */}
               <Carousel className="w-full max-w-full">
                 <CarouselContent>
-                  {Array.from({ length: 6 }).map((_, index) => (
+                  {/* {Array.from({ length: 6 }).map((_, index) => (
                     <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
                       <div className="p-1">
                         <Card>
@@ -41,7 +46,24 @@ const Home: React.FC = () => {
                         </Card>
                       </div>
                     </CarouselItem>
-                  ))}
+                  ))} */}
+                  {db.character.map((ch: character, i: number) => {
+                    return (
+                    <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
+                      <div className="p-1">
+                        <Card className='hover:bg-neutral-200'>
+                          <CardContent className="flex aspect-square items-center justify-left p-4 grid grid-rows-3"> 
+                            <img src={temp} className='rounded row-span-2 max-w-max max-h-max border-transparent'/>
+                            <div className='grid grid-rows-4 p-5'>
+                              <p className="text-xl row-span-2">{ch.name}</p>
+                              <p className='text-sm'>{ch.race} / {ch.class}</p>
+                              <p className='text-sm'>{ch.level} / {ch.alignment}</p>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  )})}
                 </CarouselContent>
               </Carousel>
             </div>

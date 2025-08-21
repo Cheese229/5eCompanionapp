@@ -1,0 +1,32 @@
+{
+    "character":[
+        {
+        "name": "Vex",
+        "race": "Tiefling",
+        "class": "Warlock",
+        "alignment": "Neutral evil",
+        "level": "lvl. 4"
+        },
+        {
+        "name": "Trout",
+        "race": "Fish",
+        "class": "Warlock",
+        "alignment": "True neutral",
+        "level": "lvl. 4"
+        },
+        {
+        "name": "Monty",
+        "race": "Human",
+        "class": "Rogue",
+        "alignment": "Neutral evil",
+        "level": "lvl. 4"
+        },
+        {
+        "name": "Chip",
+        "race": "Aarakocra",
+        "class": "Ranger",
+        "alignment": "Lawful neutral",
+        "level": "lvl. 4"
+        }
+    ]
+}
