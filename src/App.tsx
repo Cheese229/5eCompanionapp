@@ -44,7 +44,7 @@ const App: React.FC = () => (
       <IonRouterOutlet>
         {/* app opens on blank temp page with start button (will figure smthn else out maybe but this is what i could figure out) */}
         <Route exact path="/">
-          <Redirect to="/app " />
+          <Redirect to="/app" />
         </Route>
         {/* sidebar navigation menu. the menu page renders all the pages on it */}
         <Route component={Menu} path="/app" />
