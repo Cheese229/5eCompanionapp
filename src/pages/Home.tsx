@@ -73,9 +73,11 @@ const Home: React.FC = () => {
           {/* Campaign list */}
           <section className='p-2'>
             <div>
-              <h1 className='hover:underline max-w-min'>
-                Campaigns
-              </h1>
+              <Link to='/app/campaigns' style={{ textDecoration: 'none', color: 'white'  }}>
+                <h1 className='hover:underline max-w-min'>
+                  Campaigns
+                </h1>
+              </Link>
             </div>
             <div>
               {/* also hook up to a json file for campaigns */}
@@ -100,9 +102,11 @@ const Home: React.FC = () => {
           {/* Homebrew content */}
           <section className='p-2'>
             <div>
-              <h1 className='hover:underline max-w-min'>
-                Homebrew
-              </h1>
+              <Link to='/app/homebrews' style={{ textDecoration: 'none', color: 'white'  }}>
+                <h1 className='hover:underline max-w-min'>
+                  Homebrew
+                </h1>
+              </Link>
             </div>
             <div>
               {/* also hook up to a json file */}

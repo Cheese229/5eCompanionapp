@@ -6,6 +6,9 @@ import { Route, Redirect } from 'react-router';
 import CharacterList from './CharacterList';
 import Home from './Home';
 import Intro from '@/components/intro';
+import Settings from './Settings';
+import CampaignList from './CampaignList';
+import HomebrewList from './HomebrewList';
 
 
 const Menu: React.FC = () => {
@@ -21,7 +24,11 @@ const Menu: React.FC = () => {
     // list of pages here
     const paths = [
         { name: "Home", url: "/app/home"},
-        { name: "Characters", url: "/app/characters"}
+        { name: "Characters", url: "/app/characters"},
+        { name: "Campaigns", url: "/app/campaigns"},
+        { name: "Homebrews", url: "/app/homebrews"},
+        { name: "Settings", url: "/app/settings"},
+
     ]
 
     return (
@@ -53,6 +60,9 @@ const Menu: React.FC = () => {
                 <IonRouterOutlet id='main'>
                     <Route exact path="/app/home" component={Home} />
                     <Route path="/app/characters" component={CharacterList} />
+                    <Route path="/app/settings" component={Settings} />
+                    <Route path="/app/campaigns" component={CampaignList} />
+                    <Route path="/app/homebrews" component={HomebrewList} />
                     <Route exact path="/app">
                         <Redirect to="/app/home" />
                     </Route>
