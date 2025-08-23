@@ -55,7 +55,7 @@ const Home: React.FC = () => {
                     <CarouselItem key={i} className="basis-1/2 md:basis-1/3">
                       <div className="p-1">
                         <Card className='hover:bg-neutral-200 max-h-50 lg:max-h-80'>
-                          <CardContent className="flex aspect-square items-center justify-left p-4 grid grid-rows-3"> 
+                          <CardContent className="flex items-center justify-left px-4 grid grid-rows-3"> 
                             <div className='grid grid-rows-4 p-5'>
                               <p className="text-xl row-span-2">{ch.name}</p>
                               <p className='text-sm'>{ch.race} / {ch.class}</p>
@@ -85,7 +85,7 @@ const Home: React.FC = () => {
                     <CarouselItem key={index} className="basis-1/2 md:basis-1/3">
                       <div className="p-1">
                         <Card className='hover:bg-neutral-200 max-h-50 lg:max-h-80'>
-                          <CardContent className="flex aspect-square items-center justify-center">
+                          <CardContent className="flex items-center justify-center p-5">
                             <span className="text-4xl font-semibold">{index + 1}</span>
                           </CardContent>
                         </Card>
@@ -112,7 +112,7 @@ const Home: React.FC = () => {
                     <CarouselItem key={index} className="basis-1/2 md:basis-1/3">
                       <div className="p-1">
                         <Card className='hover:bg-neutral-200 max-h-50 lg:max-h-80'>
-                          <CardContent className="flex aspect-square items-center justify-center">
+                          <CardContent className="flex items-center justify-center p-5">
                             <span className="text-4xl font-semibold">{index + 1}</span>
                           </CardContent>
                         </Card>
