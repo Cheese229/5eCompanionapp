@@ -27,7 +27,7 @@ const Home: React.FC = () => {
         </IonHeader>
         <IonContent className="ion-padding">
           {/* Character list */}
-          <section className='p-10'>
+          <section className='p-2'>
             <div>
               <Link to='/app/characters' style={{ textDecoration: 'none', color: 'white'  }}>
                 <h1 className='hover:underline max-w-min'>
@@ -71,7 +71,7 @@ const Home: React.FC = () => {
             </div>
           </section>
           {/* Campaign list */}
-          <section className='p-10'>
+          <section className='p-2'>
             <div>
               <h1 className='hover:underline max-w-min'>
                 Campaigns
@@ -98,7 +98,7 @@ const Home: React.FC = () => {
           </section>
           {/* need to add homebrew and other content etc. */}
           {/* Homebrew content */}
-          <section className='p-10'>
+          <section className='p-2'>
             <div>
               <h1 className='hover:underline max-w-min'>
                 Homebrew
