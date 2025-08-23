@@ -11,7 +11,7 @@ import {
 // temp database to test character list
 import db from "@/tempdb/characters.json";
 import { character } from "@/tempmodel/character";
-import temp from '@/assets/graysquare.png';
+import { Link } from 'react-router-dom';
 
 const Home: React.FC = () => {
 
@@ -26,11 +26,14 @@ const Home: React.FC = () => {
           </IonToolbar>
         </IonHeader>
         <IonContent className="ion-padding">
+          {/* Character list */}
           <section className='p-10'>
             <div>
-              <h1 className='hover:underline max-w-min'>
-                Characters
-              </h1>
+              <Link to='/app/characters' style={{ textDecoration: 'none', color: 'white'  }}>
+                <h1 className='hover:underline max-w-min'>
+                  Characters
+                </h1>
+              </Link>
             </div>
             <div>
               {/* shadcn carousel. temp items just array of numbers. will hook up to a json file with characters */}
@@ -49,11 +52,10 @@ const Home: React.FC = () => {
                   ))} */}
                   {db.character.map((ch: character, i: number) => {
                     return (
-                    <CarouselItem key={i} className="md:basis-1/2 lg:basis-1/3">
+                    <CarouselItem key={i} className="basis-1/2 md:basis-1/3">
                       <div className="p-1">
-                        <Card className='hover:bg-neutral-200'>
+                        <Card className='hover:bg-neutral-200 max-h-50 lg:max-h-80'>
                           <CardContent className="flex aspect-square items-center justify-left p-4 grid grid-rows-3"> 
-                            <img src={temp} className='rounded row-span-2 max-w-max max-h-max border-transparent'/>
                             <div className='grid grid-rows-4 p-5'>
                               <p className="text-xl row-span-2">{ch.name}</p>
                               <p className='text-sm'>{ch.race} / {ch.class}</p>
@@ -68,6 +70,7 @@ const Home: React.FC = () => {
               </Carousel>
             </div>
           </section>
+          {/* Campaign list */}
           <section className='p-10'>
             <div>
               <h1 className='hover:underline max-w-min'>
@@ -78,11 +81,11 @@ const Home: React.FC = () => {
               {/* also hook up to a json file for campaigns */}
               <Carousel className="w-full max-w-full">
                 <CarouselContent>
-                  {Array.from({ length: 2 }).map((_, index) => (
-                    <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  {Array.from({ length: 3 }).map((_, index) => (
+                    <CarouselItem key={index} className="basis-1/2 md:basis-1/3">
                       <div className="p-1">
-                        <Card>
-                          <CardContent className="flex aspect-square items-center justify-center p-6">
+                        <Card className='hover:bg-neutral-200 max-h-50 lg:max-h-80'>
+                          <CardContent className="flex aspect-square items-center justify-center">
                             <span className="text-4xl font-semibold">{index + 1}</span>
                           </CardContent>
                         </Card>
@@ -94,6 +97,32 @@ const Home: React.FC = () => {
             </div>
           </section>
           {/* need to add homebrew and other content etc. */}
+          {/* Homebrew content */}
+          <section className='p-10'>
+            <div>
+              <h1 className='hover:underline max-w-min'>
+                Homebrew
+              </h1>
+            </div>
+            <div>
+              {/* also hook up to a json file */}
+              <Carousel className="w-full max-w-full">
+                <CarouselContent>
+                  {Array.from({ length: 3 }).map((_, index) => (
+                    <CarouselItem key={index} className="basis-1/2 md:basis-1/3">
+                      <div className="p-1">
+                        <Card className='hover:bg-neutral-200 max-h-50 lg:max-h-80'>
+                          <CardContent className="flex aspect-square items-center justify-center">
+                            <span className="text-4xl font-semibold">{index + 1}</span>
+                          </CardContent>
+                        </Card>
+                      </div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+              </Carousel>
+            </div>
+          </section>
         </IonContent>
         {/* gonna have to figure out how to do a bottom tab navbar for mobile while having a sidebar on desktop. if not, current sidebar is not bad*/}
         <IonFooter>
