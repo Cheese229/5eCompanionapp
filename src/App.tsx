@@ -35,7 +35,7 @@ import './global.css';
 
 /* importing pages */
 import Menu from './pages/Menu';
-import BlankTemp from './pages/BlankTemp';
+import Home from './pages/Home';
 
 setupIonicReact();
 
@@ -45,7 +45,7 @@ const App: React.FC = () => (
       <IonRouterOutlet>
         {/* app opens on blank temp page with start button (will figure smthn else out maybe but this is what i could figure out) */}
         <Route exact path="/">
-          <BlankTemp />
+          <Home />
         </Route>
         {/* sidebar navigation menu. the menu page renders all the pages on it */}
         <Route component={Menu} path="/app" />
