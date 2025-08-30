@@ -5,6 +5,7 @@ import React from 'react';
 
 import db from "@/tempdb/characters.json";
 import { character } from "@/tempmodel/character";
+import { Link } from 'react-router-dom';
 
 const CharacterList: React.FC = () => {
 
@@ -34,17 +35,19 @@ const CharacterList: React.FC = () => {
                             <CarouselContent>
                                 {db.character.map((ch: character, i: number) => {
                                     return (
-                                        <CarouselItem key={i} className="pt-3">
-                                            <div className="p-1">
-                                                <Card className='hover:bg-neutral-200'>
-                                                    <CardContent className="flex items-center justify-left px-6 max-h-40 grid grid-rows-4">
-                                                        <p className="text-xl row-span-2">{ch.name}</p>
-                                                        <p className='text-sm'>{ch.race} / {ch.class}</p>
-                                                        <p className='text-sm'>{ch.level} / {ch.alignment}</p>
-                                                    </CardContent>
-                                                </Card>
-                                            </div>
-                                        </CarouselItem>
+                                        <Link to='/character'>
+                                            <CarouselItem key={i} className="pt-3">
+                                                <div className="p-1">
+                                                    <Card className='hover:bg-neutral-200'>
+                                                        <CardContent className="flex items-center justify-left px-6 max-h-40 grid grid-rows-4">
+                                                            <p className="text-xl row-span-2">{ch.name}</p>
+                                                            <p className='text-sm'>{ch.race} / {ch.class}</p>
+                                                            <p className='text-sm'>{ch.level} / {ch.alignment}</p>
+                                                        </CardContent>
+                                                    </Card>
+                                                </div>
+                                            </CarouselItem>
+                                        </Link>
                                     )})}
                             </CarouselContent>
                         </Carousel>
