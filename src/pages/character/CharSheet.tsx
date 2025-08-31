@@ -10,7 +10,7 @@ const CharacterSheet: React.FC = () => {
                     <IonButtons slot="start">
                         <IonMenuButton />
                     </IonButtons>
-                    <IonTitle className='pl-5'>Character</IonTitle>
+                    <IonTitle>Character</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">

@@ -36,6 +36,7 @@ import './global.css';
 /* importing pages */
 import Menu from './pages/Menu';
 import CharMenu from './pages/character/CharMenu';
+import CreateChar from './pages/character/CreateChar';
 
 setupIonicReact();
 
@@ -50,6 +51,7 @@ const App: React.FC = () => (
         {/* sidebar navigation menu. the menu page renders all the pages on it */}
         <Route component={Menu} path="/app" />
         <Route component={CharMenu} path="/character" />
+        <Route component={CreateChar} path='/create' />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

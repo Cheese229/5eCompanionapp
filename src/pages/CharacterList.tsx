@@ -1,6 +1,6 @@
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel';
-import { IonButtons, IonContent, IonFooter, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar} from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonFooter, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, useIonRouter} from '@ionic/react';
 import React from 'react';
 
 import db from "@/tempdb/characters.json";
@@ -9,12 +9,11 @@ import { Link } from 'react-router-dom';
 
 const CharacterList: React.FC = () => {
 
-    // const router = useIonRouter();
+    const router = useIonRouter();
 
-    // const toChara = async (charasheet: string) => {
-    //     // pushes to main app
-    //     router.push(charasheet, 'forward');
-    // }
+    const createForm = () => {
+        router.push('/create', 'forward');
+    }
 
     return (
         <IonPage>
@@ -28,7 +27,12 @@ const CharacterList: React.FC = () => {
             </IonHeader>
             <IonContent className="ion-padding">
                 <section>
-                    <h1>My Characters</h1>
+                    <div className='p-2'>
+                        <h1>My Characters</h1>
+                        <IonButton onClick={createForm}>
+                            Create New Character
+                        </IonButton>
+                    </div>               
                     <div>
                         {/* shadcn carousel. temp items just array of numbers. will hook up to a json file with characters */}
                         <Carousel className="w-full max-w-full" orientation="vertical">
