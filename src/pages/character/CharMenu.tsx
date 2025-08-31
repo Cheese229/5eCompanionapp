@@ -3,7 +3,6 @@ import React from 'react';
 import { Route, Redirect } from 'react-router';
 
 // page imports
-import Home from '@/pages/Home';
 import Sheet from './CharSheet';
 import Information from './CharInformation';
 import Skills from './CharSkills';
@@ -14,7 +13,7 @@ const CharMenu: React.FC = () => {
 
     // list of pages here
     const paths = [
-        { name: "Home", url: "/app/home"},
+        { name: "Home", url: "/app"},
         { name: "Character Sheet", url: "/character/main"},
         { name: "Information", url: "/character/information"},
         { name: "Skills", url: "/character/skills"},
@@ -47,7 +46,6 @@ const CharMenu: React.FC = () => {
                 {/* router to render all the pages with the nav menu */}
                 <IonRouterOutlet id='main'>
                     <Route exact path="/character/main" component={Sheet} />
-                    <Route exact path="/app/home" component={Home} />
                     <Route path="/character/information" component={Information} />
                     <Route path="/character/skills" component={Skills} />
                     <Route path="/character/equipment" component={Equipment} />

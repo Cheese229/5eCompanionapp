@@ -1,11 +1,10 @@
 import { IonContent, IonHeader, IonItem, IonMenu, IonMenuToggle, IonPage, IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
-import React, { useState } from 'react';
+import React from 'react';
 import { Route, Redirect } from 'react-router';
 
 // page imports
 import CharacterList from './CharacterList';
 import Home from './Home';
-import Intro from '@/components/intro';
 import Settings from './Settings';
 import CampaignList from './CampaignList';
 import HomebrewList from './HomebrewList';
@@ -13,13 +12,6 @@ import HomebrewList from './HomebrewList';
 
 const Menu: React.FC = () => {
 
-    // default false for intro seen
-    const [introSeen, setIntroSeen] = useState(false);
-
-    // sets seen intro to true after intro is finished
-    const finishIntro = async() => {
-        setIntroSeen(true);
-    }
 
     // list of pages here
     const paths = [
@@ -32,10 +24,6 @@ const Menu: React.FC = () => {
     ]
 
     return (
-    <>
-        {!introSeen ? (
-        <Intro onFinish={finishIntro} />
-        ) : (
         <IonPage>
             {/* split pane to hide navbar on smaller screen and have always open on larger screen */}
             <IonSplitPane contentId='main'> 
@@ -69,8 +57,6 @@ const Menu: React.FC = () => {
                 </IonRouterOutlet>
             </IonSplitPane>
         </IonPage>
-        )}
-    </>
     );
 };
 

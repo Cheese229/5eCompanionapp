@@ -1,5 +1,6 @@
-import { IonButtons, IonContent, IonFooter, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import React from 'react';
+import { IonButton, IonButtons, IonContent, IonFooter, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import React, { useEffect, useState } from 'react';
+import { Preferences } from '@capacitor/preferences';
 
 import { Card, CardContent } from "@/components/ui/card"
 import {
@@ -12,10 +13,40 @@ import {
 import db from "@/tempdb/characters.json";
 import { character } from "@/tempmodel/character";
 import { Link } from 'react-router-dom';
+import Intro from '@/components/intro';
+
+const INTRO_KEY = 'intro-seen';
 
 const Home: React.FC = () => {
 
+  const [introSeen, setIntroSeen] = useState(true);
+
+  // sets seen intro to true after intro is finished
+  const finishIntro = async() => {
+      setIntroSeen(true);
+      Preferences.set({ key: INTRO_KEY, value: 'true' });
+  }
+
+  // removes preference to trigger intro scene again
+  const seeIntroAgain = () => {
+    setIntroSeen(false);
+    Preferences.remove({ key: INTRO_KEY });
+  }
+
+  // checks capacitor local preference for key set to true for remembering if intro has been seen
+  useEffect(() => {
+    const checkStorage = async () => {
+      const seen = await Preferences.get({ key: INTRO_KEY });
+      setIntroSeen(seen.value === 'true');
+    }
+    checkStorage();
+  }, [])
+
   return (
+    <>
+      {!introSeen ? (
+      <Intro onFinish={finishIntro} />
+      ) : (
       <IonPage>
         <IonHeader>
           <IonToolbar>
@@ -131,10 +162,14 @@ const Home: React.FC = () => {
         {/* gonna have to figure out how to do a bottom tab navbar for mobile while having a sidebar on desktop. if not, current sidebar is not bad*/}
         <IonFooter>
           <IonToolbar className='pl-5'>
-            temp footer
+            <IonButton onClick={seeIntroAgain} size='small' type='button'>
+              Watch intro again
+            </IonButton>
           </IonToolbar>
         </IonFooter>
       </IonPage>
+      )}
+    </>
   );
 };
 
