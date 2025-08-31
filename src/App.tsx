@@ -1,4 +1,4 @@
-import { Route } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 
@@ -35,7 +35,8 @@ import './global.css';
 
 /* importing pages */
 import Menu from './pages/Menu';
-import BlankTemp from './pages/BlankTemp';
+import CharMenu from './pages/character/CharMenu';
+import CreateChar from './pages/character/CreateChar';
 
 setupIonicReact();
 
@@ -45,10 +46,12 @@ const App: React.FC = () => (
       <IonRouterOutlet>
         {/* app opens on blank temp page with start button (will figure smthn else out maybe but this is what i could figure out) */}
         <Route exact path="/">
-          <BlankTemp />
+          <Redirect to="/app" />
         </Route>
         {/* sidebar navigation menu. the menu page renders all the pages on it */}
         <Route component={Menu} path="/app" />
+        <Route component={CharMenu} path="/character" />
+        <Route component={CreateChar} path='/create' />
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

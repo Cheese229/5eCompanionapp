@@ -3,23 +3,22 @@ import React from 'react';
 import { Route, Redirect } from 'react-router';
 
 // page imports
-import CharacterList from './CharacterList';
-import Home from './Home';
-import Settings from './Settings';
-import CampaignList from './CampaignList';
-import HomebrewList from './HomebrewList';
+import Sheet from './CharSheet';
+import Information from './CharInformation';
+import Skills from './CharSkills';
+import Equipment from './CharEquipment';
+import Spells from './CharSpells';
 
-
-const Menu: React.FC = () => {
-
+const CharMenu: React.FC = () => {
 
     // list of pages here
     const paths = [
-        { name: "Home", url: "/app/home"},
-        { name: "Characters", url: "/app/characters"},
-        { name: "Campaigns", url: "/app/campaigns"},
-        { name: "Homebrews", url: "/app/homebrews"},
-        { name: "Settings", url: "/app/settings"},
+        { name: "Home", url: "/app"},
+        { name: "Character Sheet", url: "/character/main"},
+        { name: "Information", url: "/character/information"},
+        { name: "Skills", url: "/character/skills"},
+        { name: "Equipment", url: "/character/equipment"},
+        { name: "Spells", url: "/character/spells"}
 
     ]
 
@@ -46,13 +45,13 @@ const Menu: React.FC = () => {
 
                 {/* router to render all the pages with the nav menu */}
                 <IonRouterOutlet id='main'>
-                    <Route exact path="/app/home" component={Home} />
-                    <Route path="/app/characters" component={CharacterList} />
-                    <Route path="/app/settings" component={Settings} />
-                    <Route path="/app/campaigns" component={CampaignList} />
-                    <Route path="/app/homebrews" component={HomebrewList} />
-                    <Route exact path="/app">
-                        <Redirect to="/app/home" />
+                    <Route exact path="/character/main" component={Sheet} />
+                    <Route path="/character/information" component={Information} />
+                    <Route path="/character/skills" component={Skills} />
+                    <Route path="/character/equipment" component={Equipment} />
+                    <Route path="/character/spells" component={Spells} />
+                    <Route exact path="/character">
+                        <Redirect to="/character/main" />
                     </Route>
                 </IonRouterOutlet>
             </IonSplitPane>
@@ -60,4 +59,4 @@ const Menu: React.FC = () => {
     );
 };
 
-export default Menu;
+export default CharMenu;
