@@ -90,7 +90,7 @@ const Home: React.FC = () => {
                             <div className='grid grid-rows-4 p-5'>
                               <p className="text-xl row-span-2">{ch.name}</p>
                               <p className='text-sm'>{ch.race} / {ch.class}</p>
-                              <p className='text-sm'>{ch.level} / {ch.alignment}</p>
+                              <p className='text-sm'>lvl. {ch.level} / {ch.alignment}</p>
                             </div>
                           </CardContent>
                         </Card>

@@ -5,10 +5,31 @@ const CreateChar: React.FC = () => {
 
     const router = useIonRouter();
 
-    const createChara = (event: any) => {
+    interface FormData {
+        name: string;
+        race: string;
+        class: string;
+        alignment: string;
+        level: string;
+    }
+
+    const createChara = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
+        const formData: FormData = {
+            name: (document.getElementById('name') as HTMLInputElement).value,
+            race: (document.getElementById('race') as HTMLInputElement).value,
+            class: (document.getElementById('class') as HTMLInputElement).value,
+            alignment: (document.getElementById('alignment') as HTMLInputElement).value,
+            level: (document.getElementById('level') as HTMLInputElement).value,
+        };
+        console.log(formData);
         console.log('created character');
         router.push('/app/characters', 'forward');
+    }
+
+    const cancelChara = () => {
+        console.log('cancelled character');
+        router.push('/app/characters', 'back');
     }
 
     return (
@@ -19,11 +40,11 @@ const CreateChar: React.FC = () => {
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">
-                <form onSubmit={createChara}>
-                    <IonInput labelPlacement='floating' label='Name:' ></IonInput>
-                    <IonInput labelPlacement='floating' label='Race:' ></IonInput>
-                    <IonInput labelPlacement='floating' label='Class:' ></IonInput>
-                    <IonSelect label="Alignment:" placeholder="True Neutral">
+                <form onSubmit={createChara} id='chara'>
+                    <IonInput id='name' labelPlacement='floating' label='Name:' ></IonInput>
+                    <IonInput id='race' labelPlacement='floating' label='Race:' ></IonInput>
+                    <IonInput id='class' labelPlacement='floating' label='Class:' ></IonInput>
+                    <IonSelect id='alignment' label="Alignment:" placeholder="Alignment" interface='popover'>
                         <IonSelectOption value="Lawful Good">Lawful Good</IonSelectOption>
                         <IonSelectOption value="Lawful Neutral">Lawful Neutral</IonSelectOption>
                         <IonSelectOption value="Lawful Evil">Lawful Evil</IonSelectOption>
@@ -34,11 +55,12 @@ const CreateChar: React.FC = () => {
                         <IonSelectOption value="Chaotic Neutral">Chaotic Neutral</IonSelectOption>
                         <IonSelectOption value="Chaotic Evil">Chaotic Evil</IonSelectOption>
                     </IonSelect>
-                    <IonSelect label="Level:" placeholder="1">
+                    <IonSelect id='level' label="Level:" placeholder="--" interface='popover'>
                         {Array.from({ length: 20 }).map((_, index) => (
                                 <IonSelectOption value={index + 1}>{index + 1}</IonSelectOption> ))}
                     </IonSelect>
                     <IonButton type='submit'>Create Character</IonButton>
+                    <IonButton className='pl-2' onClick={cancelChara}>Cancel</IonButton>
                 </form>
             </IonContent>
         </IonPage>
